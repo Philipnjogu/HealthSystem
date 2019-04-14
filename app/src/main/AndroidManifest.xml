@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".models.AdminDashboardActivity"
+            android:name=".AdminDashboardActivity"
             android:label="@string/title_activity_admin_dashboard"></activity>
         <activity android:name=".Bsdon" />
         <activity android:name=".StarterActivity">
