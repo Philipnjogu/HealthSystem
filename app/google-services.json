@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "697162219680",
+    "firebase_url": "https://healthsystem-aadcb.firebaseio.com",
+    "project_id": "healthsystem-aadcb",
+    "storage_bucket": "healthsystem-aadcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697162219680:android:073fcdd2ff72362e",
+        "android_client_info": {
+          "package_name": "com.example.healthsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697162219680-ijoqhvss0iik85bht7m7qeq1o0d5uogk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthsystem",
+            "certificate_hash": "642a2f9cf1f40f46d58b4f80df7a1c2f3b8f6c3c"
+          }
+        },
+        {
+          "client_id": "697162219680-vros2vg43re2s1pme5lvo3e7nd1c3vo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ7WsQFF168p9y4FirZZLHjlXkxZtSZuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697162219680-vros2vg43re2s1pme5lvo3e7nd1c3vo3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

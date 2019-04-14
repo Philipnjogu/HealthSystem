@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">HealthApp</string>
+    <string name="email">Email...</string>
+    <string name="password">Password...</string>
+    <string name="login">Login</string>
+    <string name="welcome_home">Welcome Home</string>
+
+    <string name="notifications">Notifications Fragment</string>
+    <string name="messages">Messages Fragment</string>
+    <string name="home">Home Fragment</string>
+
+
+    <string name="check">Checklist</string>
+    <string name="make_an_order">Make an order</string>
+    <string name="dialog_title">Items available in a shop</string>
+    <string name="ok_label">OK</string>
+    <string name="dismiss_label">Dismiss</string>
+    <string name="clear_all_label">Clear all</string>
+
+    <string-array name="shopping_item">
+        <item>Headache</item>
+        <item>Diziness</item>
+        <item>Blurred vision</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="home_page">Home Page</string>
+    <string name="logout">Logout</string>
+    <string name="just_an_image">Just an Image</string>
+    <string name="bmi">BMI</string>
+    <string name="about_us">About Us</string>
+    <string name="blood_sugar">Blood Sugar</string>
+    <string name="blood_pressure">Blood Pressure</string>
+    <string name="blood_sugar_level">Blood Sugar Level...</string>
+    <string name="reccommendation_text">Reccommendation Text...</string>
+    <string name="add_reccommendation">Add Reccommendation</string>
+    <string name="blood_pressure_level">blood_pressure_level</string>
+    <string name="bmi_level">Bmi Level</string>
+</resources>

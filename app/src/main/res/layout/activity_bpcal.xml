@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Bpcal">
+
+    <TextView
+        android:id="@+id/txtviewbp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Enter the fields below"
+        android:gravity="center"
+
+        />
+    <EditText
+        android:id="@+id/systole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtviewbp"
+        android:hint="Enter the systole value"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        />
+    <EditText
+        android:id="@+id/dystole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/systole"
+        android:hint="Enter the dystole value"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/btnbpsubmit"
+        android:text="Submit"
+        android:layout_below="@+id/dystole"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+
+        />
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/btnbpgen"
+        android:text="I dont know my values"
+        android:layout_below="@+id/btnbpsubmit"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+
+</RelativeLayout>
