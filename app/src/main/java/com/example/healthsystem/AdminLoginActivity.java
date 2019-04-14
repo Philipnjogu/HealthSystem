@@ -2,17 +2,22 @@ package com.example.healthsystem;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthsystem.models.AdminDashboardActivity;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity {
+public class AdminLoginActivity extends AppCompatActivity {
+
+    private static final String TAG = "AdminLoginActivity";
 
     //Widgets
     private EditText emailET, pwdET;
@@ -21,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Firebase Variables
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
+        mDb = FirebaseFirestore.getInstance();
 
         initComponents();
 
@@ -37,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loginUser() {
-        if(hasEmptyFields()) return;
+        if (hasEmptyFields()) return;
 
         String email = emailET.getText().toString().trim();
         String pwd = pwdET.getText().toString().trim();
@@ -50,12 +57,14 @@ public class MainActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, pwd)
                 .addOnCompleteListener(
                         task -> {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
+
                                 sendToHome();
-                            }else{
-                                Toast.makeText(this, "Login Error: " + task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                progressDialog.dismiss();
+
                             }
-                            progressDialog.dismiss();
 
                         }
                 );
@@ -82,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             pwdET.setError("Password is required");
             pwdET.requestFocus();
             return true;
-        }else return false;
+        } else return false;
     }
 
     @Override
@@ -91,13 +100,31 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = mAuth.getCurrentUser();
 
-        if(user != null){
+        if (user != null) {
             sendToHome();
         }
     }
 
     private void sendToHome() {
-        startActivity(new Intent(this, HomeActivity.class));
-        finish();
+
+        mDb.collection("admin")
+                .document(mAuth.getCurrentUser().getUid())
+                .get()
+                .addOnSuccessListener(
+                        documentSnapshot -> {
+                            if (documentSnapshot.exists()) {
+                                startActivity(new Intent(this, AdminDashboardActivity.class));
+                                finish();
+                                progressDialog.dismiss();
+                            }
+                        }
+                )
+                .addOnFailureListener(
+                        e -> {
+                            Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "loginUser: Login Failed", e);
+                            progressDialog.dismiss();
+                        }
+                );
     }
 }

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_addrec"
-        android:title="@string/add_reccommendation"
-        android:icon="@drawable/ic_add_black_24dp"/>
+        android:id="@+id/menu_logout"
+        android:title="@string/logout"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_exit_to_app_white_24dp"/>
 </menu>

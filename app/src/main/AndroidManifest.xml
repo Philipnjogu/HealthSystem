@@ -9,8 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Bsdon"></activity>
-        <!--<activity android:name=".Starter" />-->
+        <activity
+            android:name=".models.AdminDashboardActivity"
+            android:label="@string/title_activity_admin_dashboard"></activity>
+        <activity android:name=".Bsdon" />
+        <activity android:name=".StarterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".BmiAddReccommendationActivity" />
         <activity android:name=".BpAddReccommendationActivity" />
         <activity android:name=".AddReccommendationActivity" />
@@ -22,13 +30,8 @@
         <activity android:name=".Bmical" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".AdminLoginActivity" />
     </application>
 
 </manifest>

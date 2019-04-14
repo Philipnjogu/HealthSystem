@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.healthsystem.adapters.RecsRecyclerViewAdapter;
 import com.example.healthsystem.models.Reccommendation;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class Bsrec extends AppCompatActivity {
     private static final String TAG = "Bsrec";
+    public static final String BSLVEL_PARAM = "blood-sugar-level";
 
     private FirebaseFirestore mDb;
 
@@ -34,7 +36,14 @@ public class Bsrec extends AppCompatActivity {
         RecsRecyclerViewAdapter adapter = new RecsRecyclerViewAdapter(recList);
         recsRV.setAdapter(adapter);
 
+        double bslevel = 0.0;
+
+        if(getIntent() != null){
+            bslevel = getIntent().getDoubleExtra(BSLVEL_PARAM, 0.0);
+        }
+
         mDb.collection("reccommendations")
+                .whereGreaterThan("bslevel", bslevel)
                 .addSnapshotListener(
                         (queryDocumentSnapshots, e) -> {
                             if (e != null) {
@@ -50,6 +59,8 @@ public class Bsrec extends AppCompatActivity {
                                     adapter.notifyDataSetChanged();
 
                                 }
+                            }else{
+                                Toast.makeText(this, "No Reccommendations", Toast.LENGTH_SHORT).show();
                             }
                         }
                 );

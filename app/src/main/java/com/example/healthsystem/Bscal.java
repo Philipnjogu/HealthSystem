@@ -22,8 +22,14 @@ public class Bscal extends AppCompatActivity {
         setContentView(R.layout.activity_bscal);
         bslvl = findViewById(R.id.bslevel);
         button = findViewById(R.id.btnbssubmit);
+
         button.setOnClickListener(view -> {
-            Intent intent = new Intent(Bscal.this, Bsrec.class);
+            double dblbslevel = Double.parseDouble(bslvl.getText().toString().trim());
+
+            Intent intent = new Intent(this, Bsrec.class);
+
+            intent.putExtra(Bsrec.BSLVEL_PARAM, dblbslevel);
+
             startActivity(intent);
         });
 

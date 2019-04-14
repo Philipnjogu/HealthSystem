@@ -9,13 +9,11 @@
 
     <TextView
         android:id="@+id/txtviewbs"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text="Enter the fields below"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-
-        />
+        android:text="Enter the fields below" />
 
     <EditText
         android:id="@+id/bslevel"
@@ -33,9 +31,7 @@
         android:layout_below="@+id/bslevel"
         android:layout_marginTop="90dp"
         android:gravity="center"
-        android:text="Submit"
-
-        />
+        android:text="Submit" />
 
     <Button
         android:id="@+id/btnbsgen"
@@ -44,6 +40,6 @@
         android:layout_below="@+id/btnbssubmit"
         android:layout_marginTop="57dp"
         android:gravity="center"
-        android:text="I dont know my values"/>
+        android:text="I dont know my values" />
 
 </RelativeLayout>

@@ -15,7 +15,6 @@ public class AddReccommendationActivity extends AppCompatActivity {
     private static final String TAG = "AddReccommendationActiv";
     private EditText bslevelET, bsrecET;
     private Button addBSRecBtn;
-
     private FirebaseFirestore mDb;
 
     @Override
