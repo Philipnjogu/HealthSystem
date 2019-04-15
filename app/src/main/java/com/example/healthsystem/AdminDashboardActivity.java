@@ -6,17 +6,23 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.healthsystem.fragments.admin.MessagesFragment;
 import com.example.healthsystem.fragments.admin.NotificationsFragment;
 import com.example.healthsystem.fragments.admin.ReccommendationFragment;
+import com.example.healthsystem.fragments.dialogs.AddNotificationDialog;
+import com.example.healthsystem.models.Notification;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AdminDashboardActivity extends AppCompatActivity {
-
+public class AdminDashboardActivity extends AppCompatActivity implements AddNotificationDialog.AddNotificationListener {
+    private static final String TAG = "AdminDashboardActivity";
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mDb;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
@@ -70,6 +76,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_dashboard);
 
         mAuth = FirebaseAuth.getInstance();
+        mDb = FirebaseFirestore.getInstance();
 
         if (getSupportActionBar() != null) getSupportActionBar().setTitle("Reccommendations");
 
@@ -84,6 +91,25 @@ public class AdminDashboardActivity extends AppCompatActivity {
         transaction.replace(R.id.frameLayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+
+    @Override
+    public void addNotification(Notification notification) {
+        mDb.collection("notification")
+                .add(notification)
+                .addOnCompleteListener(
+                        task -> {
+                            if (task.isSuccessful()) {
+
+                                Toast.makeText(this, "Notification Addede successfully", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Toast.makeText(this, "Try again Later", Toast.LENGTH_SHORT).show();
+                                Log.e(TAG, "addNotification: ", task.getException());
+                            }
+                        }
+                );
     }
 
 }

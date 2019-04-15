@@ -24,6 +24,13 @@
         <item>Blurred vision</item>
     </string-array>
 
+    <string-array name="not_types">
+        <item>-- Type --</item>
+        <item>BMI</item>
+        <item>Blood Sugar Level</item>
+        <item>Blood Pressure</item>
+    </string-array>
+
     <string name="hello_blank_fragment">New Fragment in Town</string>
     <string name="sign_up">Sign Up</string>
     <string name="home_page">Home Page</string>
@@ -45,4 +52,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="type">Type</string>
+    <string name="notification">Notification</string>
 </resources>
