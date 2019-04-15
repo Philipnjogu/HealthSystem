@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.healthsystem.models.Reccommendation;
@@ -13,14 +14,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BmiAddReccommendationActivity extends AppCompatActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_bmi_add_reccommendation);
-//    }
-private static final String TAG = "AddReccommendationActiv";
+    private static final String TAG = "AddReccommendationActiv";
     private EditText bmilevelET, bmirecET;
     private Button addBMIRecBtn;
+    private Spinner recTypeSpinner;
 
     private FirebaseFirestore mDb;
 
@@ -36,8 +33,9 @@ private static final String TAG = "AddReccommendationActiv";
                 view -> {
                     double bmilevel = Double.parseDouble(bmilevelET.getText().toString().trim());
                     String bmirec = bmirecET.getText().toString().trim();
+                    String type = recTypeSpinner.getSelectedItem().toString().trim();
 
-                    Reccommendation rec = new Reccommendation(bmilevel, bmirec);
+                    Reccommendation rec = new Reccommendation(bmilevel, bmirec, type);
 
                     mDb.collection("reccommendations")
                             .add(rec)
@@ -46,7 +44,7 @@ private static final String TAG = "AddReccommendationActiv";
                                         if (task.isSuccessful()) {
                                             Toast.makeText(this, "Reccommendation Added", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(this, Bmirec.class));
-                                        }else{
+                                        } else {
                                             Toast.makeText(this, "Operation Failed", Toast.LENGTH_SHORT).show();
                                             Log.e(TAG, "onCreate: Failed to Add Reccommendation", task.getException());
                                         }
@@ -60,5 +58,6 @@ private static final String TAG = "AddReccommendationActiv";
         bmilevelET = findViewById(R.id.bmilevel_et);
         bmirecET = findViewById(R.id.bmirec_et);
         addBMIRecBtn = findViewById(R.id.add_rec_btn);
+        recTypeSpinner = findViewById(R.id.rec_type_spinner);
     }
 }

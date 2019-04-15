@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/single_reccommendation_item">
-
-    </android.support.v7.widget.RecyclerView>
+        tools:listitem="@layout/single_reccommendation_item"/>
 
 </android.support.constraint.ConstraintLayout>

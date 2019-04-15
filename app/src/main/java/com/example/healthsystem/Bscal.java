@@ -38,19 +38,4 @@ public class Bscal extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bscal_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_addrec:
-                startActivity(new Intent(this, AddReccommendationActivity.class));
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }
