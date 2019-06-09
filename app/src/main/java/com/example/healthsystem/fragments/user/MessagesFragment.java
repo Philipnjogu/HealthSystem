@@ -1,4 +1,4 @@
-package com.example.healthsystem;
+package com.example.healthsystem.fragments.user;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.healthsystem.R;
 
 
 public class MessagesFragment extends Fragment {

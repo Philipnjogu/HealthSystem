@@ -15,15 +15,9 @@ public class StarterActivity extends AppCompatActivity {
         if(getSupportActionBar() != null) getSupportActionBar().setTitle("User Login");
 
         Button userLoginBtn = findViewById(R.id.user_login_btn);
-        userLoginBtn.setOnClickListener(view -> {
-            startActivity(new Intent(this, MainActivity.class));
-        });
-
-
+        userLoginBtn.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
 
         Button adminLoginBtn = findViewById(R.id.admin_login_btn);
-        adminLoginBtn.setOnClickListener(view -> {
-            startActivity(new Intent(this, AdminLoginActivity.class));
-        });
+        adminLoginBtn.setOnClickListener(view -> startActivity(new Intent(this, AdminLoginActivity.class)));
     }
 }

@@ -1,4 +1,4 @@
-package com.example.healthsystem;
+package com.example.healthsystem.fragments.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,11 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.healthsystem.Bmical;
+import com.example.healthsystem.Bpcal;
+import com.example.healthsystem.Bscal;
+import com.example.healthsystem.R;
 
 
 public class Homefragment extends Fragment {

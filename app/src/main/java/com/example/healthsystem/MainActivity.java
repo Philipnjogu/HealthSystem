@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         String email = emailET.getText().toString().trim();
         String pwd = pwdET.getText().toString().trim();
 
-        progressDialog.setTitle("Attempting Signup");
+        progressDialog.setTitle("Attempting to Sign In");
         progressDialog.setMessage("Please Wait...");
-        progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email, pwd)
@@ -88,9 +88,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         FirebaseUser user = mAuth.getCurrentUser();
-
         if(user != null){
             sendToHome();
         }

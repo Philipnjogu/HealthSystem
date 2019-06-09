@@ -33,24 +33,25 @@ public class AdminLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirebaseApp.initializeApp(this);
+
         mAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
 
         initComponents();
 
-        loginBtn.setOnClickListener(view -> loginUser());
+        loginBtn.setOnClickListener(view -> loginAdmin());
         signupBtn.setOnClickListener(view -> startActivity(new Intent(this, SignupActivity.class)));
     }
 
-    private void loginUser() {
+    private void loginAdmin() {
         if (hasEmptyFields()) return;
 
         String email = emailET.getText().toString().trim();
         String pwd = pwdET.getText().toString().trim();
 
-        progressDialog.setTitle("Attempting Signup");
+        progressDialog.setTitle("Attempting to Sign In");
         progressDialog.setMessage("Please Wait...");
-        progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email, pwd)
@@ -121,7 +122,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 .addOnFailureListener(
                         e -> {
                             Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
-                            Log.e(TAG, "loginUser: Login Failed", e);
+                            Log.e(TAG, "loginAdmin: Login Failed", e);
                             progressDialog.dismiss();
                         }
                 );
